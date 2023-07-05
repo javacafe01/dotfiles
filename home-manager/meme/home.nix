@@ -16,9 +16,6 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    (import ../shared/services/picom { inherit config; })
-
-    (import ../shared/programs/alacritty { inherit config; })
     (import ../shared/programs/bat { inherit config; })
     (import ../shared/programs/direnv { inherit config; })
     (import ../shared/programs/exa { inherit config; })
@@ -68,7 +65,6 @@
       (final: prev:
         {
           discord = prev.discord.override { withOpenASAR = true; };
-          picom = inputs.nixpkgs-f2k.packages.${pkgs.system}.picom-git;
           neovim = inputs.neovim-nightly.packages.${final.system}.default;
           ripgrep = prev.ripgrep.override { withPCRE2 = true; };
         })
@@ -87,40 +83,8 @@
 
   fonts.fontconfig.enable = true;
 
-  gtk = {
-    enable = true;
-    font.name = "sans-serif";
-
-    gtk3 = {
-      extraConfig = { gtk-decoration-layout = "menu:"; };
-
-      extraCss = ''
-        vte-terminal {
-          padding: 20px;
-        }
-      '';
-    };
-
-    iconTheme = {
-      name = "Papirus";
-      package = pkgs.papirus-icon-theme;
-    };
-
-    theme = {
-      name = "tomorrow-night";
-      package = (inputs.nix-colors.lib-contrib { inherit pkgs; }).gtkThemeFromScheme {
-        scheme = config.colorScheme;
-      };
-    };
-  };
-
   home = {
     activation = {
-      installAwesomeConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
-          ln -s "/etc/nixos/config/awesome" "${config.home.homeDirectory}/.config/awesome" 
-        fi
-      '';
       installNvimConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
           ln -s "/etc/nixos/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
@@ -164,8 +128,6 @@
 
     packages = lib.attrValues {
       inherit (pkgs)
-        gimp
-        go
         mpc_cli
         neovim
         playerctl
@@ -202,9 +164,6 @@
         statix
         ripgrep;
 
-      inherit (pkgs.cinnamon)
-        xreader;
-
       inherit (pkgs.luajitPackages)
         jsregexp;
 
@@ -236,11 +195,6 @@
   programs = {
     home-manager.enable = true;
     mpv.enable = true;
-
-    ncspot = {
-      enable = true;
-      settings.use_nerdfont = true;
-    };
   };
 
   services.playerctld.enable = true;
