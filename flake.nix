@@ -3,8 +3,8 @@
 
   inputs = {
     # Flake inputs
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     discocss.url = "github:mlvzk/discocss/flake";
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
     home.url = "github:nix-community/home-manager";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nix-colors.url = "github:misterio77/nix-colors";
@@ -69,11 +69,7 @@
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
-        "aarch64-linux"
-        "i686-linux"
         "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
       ];
     in
     {

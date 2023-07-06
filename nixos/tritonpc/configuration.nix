@@ -12,10 +12,11 @@
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
+    inputs.chaotic.nixosModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    ./programs/steam.nix
     ../shared/configuration.nix
+    ../shared/programs/steam.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -50,7 +51,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -79,6 +80,8 @@
       forceFullCompositionPipeline = true;
       modesetting.enable = true;
       nvidiaSettings = true;
+      open = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
     opengl = {
