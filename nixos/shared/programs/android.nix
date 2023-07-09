@@ -8,6 +8,6 @@
     pkgs.android-udev-rules
   ];
 
-  users.users.javacafe01.extraGroups = [ "adbusers" ];
+  users.users.javacafe01.extraGroups = [ "adbusers" "libvirtd" ];
   virtualisation.libvirtd.enable = true;
 }
