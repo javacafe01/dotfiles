@@ -9,4 +9,5 @@
   ];
 
   users.users.javacafe01.extraGroups = [ "adbusers" ];
+  virtualisation.libvirtd.enable = true;
 }
