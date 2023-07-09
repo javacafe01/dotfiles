@@ -162,7 +162,7 @@
       home = "/home/javacafe01";
 
       extraGroups =
-        [ "wheel" "networkmanager" "sudo" "video" "audio" "adbusers" ];
+        [ "wheel" "networkmanager" "sudo" "video" "audio" ];
     };
   };
 }

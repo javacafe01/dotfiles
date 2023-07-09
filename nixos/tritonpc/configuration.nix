@@ -97,10 +97,7 @@
     useDHCP = false;
   };
 
-  programs = {
-    adb.enable = true;
-    dconf.enable = true;
-  };
+  programs.dconf.enable = true;
 
   services = {
     acpid.enable = true;
