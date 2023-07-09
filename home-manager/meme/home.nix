@@ -29,7 +29,6 @@
           extensions = with pkgs.nur.repos.rycee.firefox-addons; [
             bitwarden
             ublock-origin
-            octotree
           ];
 
           id = 0;
