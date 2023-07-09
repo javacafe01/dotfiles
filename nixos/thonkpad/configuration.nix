@@ -67,7 +67,7 @@
       };
     };
 
-    # resumeDevice = "/dev/nvme0n1p6";
+    resumeDevice = "/dev/nvme0n1p6";
   };
 
   console = {
