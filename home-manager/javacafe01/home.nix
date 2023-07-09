@@ -26,11 +26,38 @@
       inherit config pkgs;
       package = pkgs.firefox;
 
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        bitwarden
-        ublock-origin
-        octotree
-      ];
+      profiles = {
+        myprofile = {
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            bitwarden
+            ublock-origin
+            octotree
+          ];
+
+          id = 0;
+
+          settings = {
+            "browser.startup.homepage" = "https://gs.is-a.dev/startpage/";
+            "general.smoothScroll" = true;
+          };
+
+          userChrome = import ../shared/programs/firefox/userChrome-css.nix {
+            theme = config.colorScheme;
+          };
+
+          userContent = import ../shared/programs/firefox/userContent-css.nix {
+            theme = config.colorScheme;
+          };
+
+          extraConfig = ''
+            user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+            user_pref("full-screen-api.ignore-widgets", true);
+            user_pref("media.ffmpeg.vaapi.enabled", true);
+            user_pref("media.rdd-vpx.enabled", true);
+            user_pref("extensions.pocket.enabled", false);
+          '';
+        };
+      };
     })
 
     (import ../shared/programs/discord {
