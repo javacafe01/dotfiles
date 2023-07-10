@@ -22,12 +22,6 @@
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # Non Flakes
-    awesome-git = {
-      url = "github:awesomeWM/awesome";
-      flake = false;
-    };
-
     fzf-tab = {
       url = "github:Aloxaf/fzf-tab";
       flake = false;
