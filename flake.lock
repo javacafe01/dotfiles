@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "awesome-git": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686722563,
+        "narHash": "sha256-ZFjYKyzQiRgg5uHgMLeex6oOKDrXMhp9dxxHEm2xeH4=",
+        "owner": "awesomeWM",
+        "repo": "awesome",
+        "rev": "0e5fc4575ab0adbae75908cb49937d9cf63437ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "awesomeWM",
+        "repo": "awesome",
+        "type": "github"
+      }
+    },
     "base16-schemes": {
       "flake": false,
       "locked": {
@@ -1182,6 +1198,7 @@
     },
     "root": {
       "inputs": {
+        "awesome-git": "awesome-git",
         "chaotic": "chaotic",
         "discocss": "discocss",
         "fzf-tab": "fzf-tab",
