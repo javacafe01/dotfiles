@@ -4,32 +4,9 @@
   nixpkgs = {
     # You can add overlays here
     overlays = [
-      (_: prev:
+      (_: _:
         {
-          awesome =
-
-            let
-              extraGIPackages = with prev; [ networkmanager upower playerctl ];
-            in
-
-            (prev.awesome.override { gtk3Support = true; lua = prev.luajit; }).overrideAttrs (_: {
-              version = "luajit-999-master";
-
-              src = inputs.awesome-git;
-              patches = [ ];
-
-              postPatch = ''
-                patchShebangs tests/examples/_postprocess.lua
-                patchShebangs tests/examples/_postprocess_cleanup.lua
-              '';
-
-              GI_TYPELIB_PATH =
-                let
-                  mkTypeLibPath = pkg: "${pkg}/lib/girepository-1.0";
-                  extraGITypeLibPaths = prev.lib.forEach extraGIPackages mkTypeLibPath;
-                in
-                prev.lib.concatStringsSep ":" (extraGITypeLibPaths ++ [ (mkTypeLibPath prev.pango.out) ]);
-            });
+          awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-luajit-git;
         })
     ];
   };

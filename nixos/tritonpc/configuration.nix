@@ -18,6 +18,7 @@
     ../shared/configuration.nix
     ../shared/programs/steam.nix
     ../shared/programs/android.nix
+    ../shared/programs/pio.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix

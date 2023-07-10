@@ -18,6 +18,7 @@
     ../shared/configuration.nix
     ../shared/desktops/plasma.nix
     ../shared/programs/android.nix
+    ../shared/programs/pio.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -140,7 +141,6 @@
     };
 
     fwupd.enable = true;
-    udev.packages = [ pkgs.platformio ];
 
     xserver = {
       dpi = 168;
