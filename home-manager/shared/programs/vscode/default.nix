@@ -6,6 +6,7 @@ let
     ms-python.isort
     ms-python.python
     ms-python.vscode-pylance
+    platformio.platformio-ide
     rvest.vs-code-prettier-eslint
     sndst00m.markdown-github-dark-pack
   ];
