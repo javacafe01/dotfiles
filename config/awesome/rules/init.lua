@@ -1,5 +1,7 @@
 local awful = require("awful")
+local beautiful = require("beautiful")
 local ruled = require("ruled")
+local helpers = require("helpers")
 
 ruled.client.connect_signal("request::rules", function()
     -- All clients will match this rule.
@@ -64,7 +66,7 @@ ruled.client.connect_signal("request::rules", function()
             titlebars_enabled = false,
             floating = true,
             border_width = 0,
-            border_color = 0,
+            shape = helpers.shape.rrect(0),
             size_hints_honor = false,
         },
     })

@@ -15,6 +15,9 @@ local theme = {}
 theme.font_name = "monospace "
 theme.font = theme.font_name .. "8"
 
+theme.accent_green = "#51948d"
+theme.accent_blue = "#92b2ca"
+
 theme.bg_normal = xrdb.background or "#222222"
 theme.bg_focus = "#535d6c"
 theme.bg_urgent = "#ff0000"
@@ -31,6 +34,8 @@ theme.gap_single_client = false
 theme.border_width = dpi(1)
 theme.border_color_active = helpers.math.lighten(theme.bg_normal, -5)
 theme.border_color_normal = helpers.math.lighten(theme.bg_normal, -5)
+
+theme.client_border_radius = dpi(6)
 
 -- There are other variable sets
 -- overriding the default one when
@@ -68,11 +73,7 @@ theme.systray_icon_size = dpi(14)
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
 
-theme.notification_icon_size = dpi(32)
-theme.notification_margin = dpi(16)
-theme.notification_border_width = dpi(1)
-theme.notification_border_color = helpers.math.lighten(theme.bg_normal, -5)
-theme.notification_shape = helpers.shape.rrect(dpi(6))
+theme.notification_spacing = dpi(10)
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
