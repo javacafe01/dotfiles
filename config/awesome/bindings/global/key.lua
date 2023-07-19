@@ -2,13 +2,39 @@ local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 local menubar = require("menubar")
+local beautiful = require("beautiful")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
 
 local apps = require("config.apps")
 local mod = require("bindings.mod")
 local widgets = require("widgets")
 
+local helpers = require("helpers")
+
 local bling = require("modules.bling")
 local flash_focus = bling.module.flash_focus
+
+local app_launcher_args = {
+    terminal = apps.terminal,
+    sort_alphabetically = true,
+
+    border_width = beautiful.border_width,
+    border_color = beautiful.border_color_normal,
+    shape = helpers.shape.rrect(beautiful.border_radius),
+
+    prompt_color = beautiful.accent_blue,
+
+    app_selected_color = beautiful.accent_blue,
+    apps_margin = dpi(0),
+    apps_per_row = 3, -- Set how many apps should appear in each row
+    apps_per_column = 3,
+    app_width = dpi(200),
+    app_height = dpi(200),
+    apps_spacing = dpi(1),
+}
+
+local app_launcher = bling.widget.app_launcher(app_launcher_args)
 
 local awesome = awesome
 local client = client
@@ -143,7 +169,7 @@ awful.keyboard.append_global_keybindings({
         description = "show the menubar",
         group = "launcher",
         on_press = function()
-            menubar.show()
+            app_launcher:toggle()
         end,
     }),
 })

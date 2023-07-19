@@ -7,6 +7,6 @@ _M.layouts = {
     awful.layout.suit.floating,
 }
 
-_M.tags = { "1", "2", "3", "4" }
+_M.tags = { "1", "2", "3", "4", "5" }
 
 return _M

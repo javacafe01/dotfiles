@@ -7,6 +7,7 @@ local rnotification = require("ruled.notification")
 local dpi = xresources.apply_dpi
 local xrdb = xresources.get_current_theme()
 local gfs = require("gears.filesystem")
+local gshape = require("gears").shape
 local helpers = require("helpers")
 local themes_path = gfs.get_themes_dir()
 
@@ -51,12 +52,11 @@ theme.client_border_radius = dpi(6)
 
 theme.tasklist_bg_normal = helpers.math.lighten(theme.bg_normal, 10)
 theme.tasklist_bg_focus = theme.bg_focus
-
-theme.taglist_bg_occupied = helpers.math.lighten(theme.bg_normal, 5)
-theme.taglist_bg_focus = theme.bg_focus
-theme.taglist_fg_occupied = helpers.math.lighten(theme.bg_normal, 20)
-theme.taglist_shape = helpers.shape.rrect(dpi(6))
-
+theme.taglist_bg_occupied = theme.bg_focus
+theme.taglist_bg_focus = theme.accent_blue
+theme.taglist_bg_empty = helpers.math.lighten(theme.bg_normal, 10)
+theme.taglist_shape = helpers.shape.rrect(dpi(8))
+theme.taglist_spacing = dpi(8)
 theme.taglist_font = theme.font_name .. "7"
 
 theme.wibar_height = dpi(34)

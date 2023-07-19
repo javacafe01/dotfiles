@@ -8,6 +8,8 @@ local gears = require("gears")
 local rubato = require("modules").rubato
 local helpers = require("helpers")
 
+require("signals.naughty.playerctl")
+
 ---------------------------
 -- NAUGHTY CONFIGURATION --
 ---------------------------

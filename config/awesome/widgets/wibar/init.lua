@@ -9,9 +9,8 @@ local wibox = require("wibox")
 local menubar = require("menubar")
 local helpers = require("helpers")
 local awesome = awesome
-local client = client
 
-local mod = require("bindings.mod")
+local get_taglist = require("widgets.wibar.modules.taglist")
 
 _M.volume_bar = wibox.widget({
     max_value = 100,
@@ -91,75 +90,7 @@ function _M.create_layoutbox(s)
 end
 
 function _M.create_taglist(s)
-    return awful.widget.taglist({
-        screen = s,
-        filter = awful.widget.taglist.filter.all,
-        buttons = {
-            awful.button({
-                modifiers = {},
-                button = 1,
-                on_press = function(t)
-                    t:view_only()
-                end,
-            }),
-            awful.button({
-                modifiers = { mod.super },
-                button = 1,
-                on_press = function(t)
-                    if client.focus then
-                        client.focus:move_to_tag(t)
-                    end
-                end,
-            }),
-            awful.button({
-                modifiers = {},
-                button = 3,
-                on_press = awful.tag.viewtoggle,
-            }),
-            awful.button({
-                modifiers = { mod.super },
-                button = 3,
-                on_press = function(t)
-                    if client.focus then
-                        client.focus:toggle_tag(t)
-                    end
-                end,
-            }),
-            awful.button({
-                modifiers = {},
-                button = 4,
-                on_press = function(t)
-                    awful.tag.viewprev(t.screen)
-                end,
-            }),
-            awful.button({
-                modifiers = {},
-                button = 5,
-                on_press = function(t)
-                    awful.tag.viewnext(t.screen)
-                end,
-            }),
-        },
-        widget_template = {
-            {
-                {
-                    {
-                        id = "text_role",
-                        widget = wibox.widget.textbox,
-                    },
-                    top = dpi(0),
-                    bottom = dpi(0),
-                    right = dpi(9),
-                    left = dpi(9),
-                    widget = wibox.container.margin,
-                },
-                id = "background_role",
-                widget = wibox.container.background,
-            },
-            margins = dpi(6),
-            widget = wibox.container.margin,
-        },
-    })
+    return get_taglist(s)
 end
 
 function _M.create_tasklist(s)
@@ -228,6 +159,7 @@ function _M.create_wibox(s)
         height = beautiful.wibar_height,
         widget = {
             layout = wibox.layout.align.horizontal,
+            expand = "none",
             -- left widgets
             {
                 layout = wibox.layout.fixed.horizontal,
@@ -245,11 +177,11 @@ function _M.create_wibox(s)
                     margins = dpi(6),
                     widget = wibox.container.margin,
                 },
-                s.taglist,
+                s.tasklist,
                 s.promptbox,
             },
             -- middle widgets
-            s.tasklist,
+            { s.taglist, margins = dpi(6), widget = wibox.container.margin },
             -- right widgets
             {
                 layout = wibox.layout.fixed.horizontal,
