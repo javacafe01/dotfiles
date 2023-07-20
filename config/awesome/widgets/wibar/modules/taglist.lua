@@ -73,7 +73,8 @@ return function(s)
 
             create_callback = function(self, c3, _)
                 self.anim = rubato.timed({
-                    duration = 1 / 3,
+                    duration = 2 / 5,
+                    easing = rubato.quadratic,
                     subscribed = function(pos)
                         if pos < 12 then
                             pos = 12
