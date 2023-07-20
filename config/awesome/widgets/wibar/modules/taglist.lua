@@ -75,8 +75,8 @@ return function(s)
                 self.anim = rubato.timed({
                     duration = 1 / 3,
                     subscribed = function(pos)
-                        if pos < 8 then
-                            pos = 8
+                        if pos < 12 then
+                            pos = 12
                         end
 
                         if pos > 32 then
