@@ -36,6 +36,7 @@ TODO
 
 ## Credits
 
-### Other configs and credits
+### Other configs
 + [Misterio77/nix-starter-configs](https://github.com/Misterio77/nix-starter-configs)
 + [fortuneteller2k/nix-config](https://github.com/fortuneteller2k/nix-config)
++ [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
