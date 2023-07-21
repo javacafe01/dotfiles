@@ -64,6 +64,7 @@
     })
 
     (import ../shared/programs/git { inherit config lib pkgs; })
+    (import ../shared/programs/helix { inherit inputs pkgs; })
     (import ../shared/programs/htop { inherit config; })
 
     (import ../shared/programs/starship { inherit config; })
@@ -221,6 +222,7 @@
         fd
         gnuplot
         gnutls
+        gomuks
         imagemagick
         sdcv
         sqlite

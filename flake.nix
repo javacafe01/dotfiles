@@ -5,6 +5,7 @@
     # Flake inputs
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     discocss.url = "github:mlvzk/discocss/flake";
+    helix.url = "github:SoraTenshi/helix/new-daily-driver";
     home.url = "github:nix-community/home-manager";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nix-colors.url = "github:misterio77/nix-colors";

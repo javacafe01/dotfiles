@@ -72,6 +72,7 @@
         "https://cache.ngi0.nixos.org/"
         "https://nix-community.cachix.org"
         "https://fortuneteller2k.cachix.org"
+        "https://helix.cachix.org"
       ];
 
       trusted-public-keys = [
@@ -79,6 +80,7 @@
         "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
+        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       ];
     };
   };
