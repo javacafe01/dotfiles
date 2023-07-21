@@ -5,7 +5,7 @@
     # Flake inputs
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     discocss.url = "github:mlvzk/discocss/flake";
-    emacs-overlay.url = "nix-community/emacs-overlay";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
     helix.url = "github:SoraTenshi/helix/new-daily-driver";
     home.url = "github:nix-community/home-manager";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
@@ -30,7 +30,7 @@
     };
 
     bling = {
-      url = - "github:BlingCorp/bling";
+      url = "github:BlingCorp/bling";
       flake = false;
     };
 
