@@ -70,6 +70,7 @@
     (import ../shared/services/picom { inherit config; })
     (import ../shared/programs/starship { inherit config; })
     (import ../shared/programs/vscode { inherit config inputs pkgs; })
+    (import ../shared/programs/zellij { inherit inputs; })
     (import ../shared/programs/zsh { inherit config pkgs inputs; colorIt = true; })
   ];
 

@@ -1624,6 +1624,7 @@
         "skippy-xd": "skippy-xd",
         "stable": "stable",
         "vscode-server": "vscode-server",
+        "zellij": "zellij",
         "zsh-completions": "zsh-completions",
         "zsh-nix-shell": "zsh-nix-shell",
         "zsh-syntax-highlighting": "zsh-syntax-highlighting"
@@ -2011,6 +2012,22 @@
         "owner": "pineappleEA",
         "ref": "main",
         "repo": "pineapple-src",
+        "type": "github"
+      }
+    },
+    "zellij": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689700589,
+        "narHash": "sha256-rl5K6SQmh4clEzmnz7GUCG40Y9qHtc+9KG4Tcf3V35c=",
+        "owner": "zellij-org",
+        "repo": "zellij",
+        "rev": "6cf795a7df6c83b65a4535b6af0338b4a0b1742f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zellij-org",
+        "repo": "zellij",
         "type": "github"
       }
     },

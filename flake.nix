@@ -59,6 +59,11 @@
       flake = false;
     };
 
+    zellij = {
+      url = "github:zellij-org/zellij";
+      flake = false;
+    };
+
     zsh-completions = {
       url = "github:zsh-users/zsh-completions";
       flake = false;
