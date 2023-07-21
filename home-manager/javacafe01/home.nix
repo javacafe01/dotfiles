@@ -24,7 +24,7 @@
       inherit config; discordPackage = pkgs.discord;
     })
 
-    (import ../shared/programs/emacs { emacs-package = pkgs.emacs-git-nox; })
+    (import ../shared/programs/emacs { emacs-package = pkgs.emacs-git; })
     (import ../shared/programs/exa { inherit config; })
 
     (import ../shared/programs/firefox {
