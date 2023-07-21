@@ -15,11 +15,16 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    (import ../shared/services/picom { inherit config; })
     (import ../shared/programs/alacritty { inherit config; })
 
     (import ../shared/programs/bat { inherit config; })
     (import ../shared/programs/direnv { inherit config; })
+
+    (import ../shared/programs/discord {
+      inherit config; discordPackage = pkgs.discord;
+    })
+
+    (import ../shared/programs/emacs { emacs-package = pkgs.emacs-git-nox; })
     (import ../shared/programs/exa { inherit config; })
 
     (import ../shared/programs/firefox {
@@ -59,14 +64,10 @@
       };
     })
 
-    (import ../shared/programs/discord {
-      inherit config; discordPackage = pkgs.discord;
-    })
-
     (import ../shared/programs/git { inherit config lib pkgs; })
     (import ../shared/programs/helix { inherit inputs pkgs; })
     (import ../shared/programs/htop { inherit config; })
-
+    (import ../shared/services/picom { inherit config; })
     (import ../shared/programs/starship { inherit config; })
     (import ../shared/programs/vscode { inherit config inputs pkgs; })
     (import ../shared/programs/zsh { inherit config pkgs inputs; colorIt = true; })
@@ -81,6 +82,7 @@
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
+      inputs.emacs-overlay.overlays.default
       inputs.nixpkgs-f2k.overlays.stdenvs
       inputs.nur.overlay
 
@@ -94,7 +96,7 @@
       (final: prev:
         {
           discord = prev.discord.override { withOpenASAR = true; };
-          picom = inputs.nixpkgs-f2k.packages.${pkgs.system}.picom-git;
+          picom = inputs.nixpkgs-f2k.packages.${final.system}.picom-git;
           neovim = inputs.neovim-nightly.packages.${final.system}.default;
           ripgrep = prev.ripgrep.override { withPCRE2 = true; };
         })
@@ -144,12 +146,15 @@
     activation = {
       installAwesomeConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
-          ln -s "/etc/nixos/config/awesome" "${config.home.homeDirectory}/.config/awesome" 
+          ln -s "/etc/nixos/config/awesome" "${config.home.homeDirectory}/.config/awesome"
+          cp -r ${inputs.bling.outPath} ${config.home.homeDirectory}/.config//awesome/modules/bling
+          cp -r ${inputs.rubato.outPath} ${config.home.homeDirectory}/.config//awesome/modules/rubato
+          cp -r ${inputs.awesome-battery_widget.outPath} ${config.home.homeDirectory}/.config//awesome/modules/battery_widget
         fi
       '';
       installNvimConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-          ln -s "/etc/nixos/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
+          ln -s "/etc/nixos/config/nvim" "${config.home.homeDirectory}/.config/nvim"
         fi
       '';
     };
@@ -244,6 +249,7 @@
 
     sessionPath = [
       "${config.home.homeDirectory}/.local/bin"
+      "${config.xdg.configHome}/emacs/bin"
     ];
 
     sessionVariables = {

@@ -5,6 +5,7 @@
     # Flake inputs
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     discocss.url = "github:mlvzk/discocss/flake";
+    emacs-overlay.url = "nix-community/emacs-overlay";
     helix.url = "github:SoraTenshi/helix/new-daily-driver";
     home.url = "github:nix-community/home-manager";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
@@ -23,6 +24,16 @@
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    awesome-battery_widget = {
+      url = "github:Aire-One/awesome-battery_widget";
+      flake = false;
+    };
+
+    bling = {
+      url = - "github:BlingCorp/bling";
+      flake = false;
+    };
+
     fzf-tab = {
       url = "github:Aloxaf/fzf-tab";
       flake = false;
@@ -30,6 +41,11 @@
 
     rounded-sbe = {
       url = "github:a-parhom/RoundedSBE";
+      flake = false;
+    };
+
+    rubato = {
+      url = "github:andOrlando/rubato";
       flake = false;
     };
 
