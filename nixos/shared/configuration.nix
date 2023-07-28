@@ -24,7 +24,7 @@
   };
 
   fonts = {
-    fonts = lib.attrValues {
+    packages = lib.attrValues {
       inherit (pkgs)
         cantarell-fonts
         emacs-all-the-icons-fonts

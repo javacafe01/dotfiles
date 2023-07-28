@@ -29,6 +29,11 @@
       flake = false;
     };
 
+    awesome-code-doc = {
+      url = "github:kosorin/awesome-code-doc";
+      flake = false;
+    };
+
     bling = {
       url = "github:BlingCorp/bling";
       flake = false;

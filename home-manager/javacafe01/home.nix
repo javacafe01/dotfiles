@@ -148,9 +148,10 @@
       installAwesomeConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
           ln -s "/etc/nixos/config/awesome" "${config.home.homeDirectory}/.config/awesome"
-          cp -r ${inputs.bling.outPath} ${config.home.homeDirectory}/.config//awesome/modules/bling
-          cp -r ${inputs.rubato.outPath} ${config.home.homeDirectory}/.config//awesome/modules/rubato
-          cp -r ${inputs.awesome-battery_widget.outPath} ${config.home.homeDirectory}/.config//awesome/modules/battery_widget
+          cp -r ${inputs.bling.outPath} ${config.home.homeDirectory}/.config/awesome/modules/bling
+          cp -r ${inputs.rubato.outPath} ${config.home.homeDirectory}/.config/awesome/modules/rubato
+          cp -r ${inputs.awesome-battery_widget.outPath} ${config.home.homeDirectory}/.config/awesome/modules/battery_widget
+          cp -r ${inputs.awesome-code-doc.outPath} ${config.home.homeDirectory}/.awesome-doc
         fi
       '';
       installNvimConfig = ''
