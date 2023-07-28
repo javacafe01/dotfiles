@@ -65,6 +65,7 @@
     systemPackages = lib.attrValues {
       inherit (pkgs)
         acpi
+        liquidctl
         nvtop-nvidia
         pciutils;
     };
