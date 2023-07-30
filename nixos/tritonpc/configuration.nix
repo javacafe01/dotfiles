@@ -53,6 +53,7 @@
   };
 
   boot = {
+    initrd.kernelModules = [ "amdgpu" ];
     kernelPackages = pkgs.linuxPackages_cachyos;
 
     loader = {
@@ -61,13 +62,15 @@
     };
   };
 
+  chaotic.steam.extraCompatPackages = with pkgs; [ proton-ge-custom ];
+
   environment = {
     systemPackages = lib.attrValues {
       inherit (pkgs)
         acpi
         liquidctl
-        nvtop-nvidia
-        pciutils;
+        pciutils
+        radeontop;
     };
   };
 
@@ -78,18 +81,20 @@
     };
 
     enableRedistributableFirmware = true;
-
-    nvidia = {
-      forceFullCompositionPipeline = true;
-      modesetting.enable = true;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-    };
-
     opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+
+      extraPackages = with pkgs; [
+        amdvlk
+        rocm-opencl-icd
+        rocm-opencl-runtime
+      ];
+
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
+      ];
     };
   };
 
@@ -113,7 +118,7 @@
 
     xserver = {
       dpi = 96;
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "amdgpu" ];
     };
   };
 
