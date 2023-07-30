@@ -17,7 +17,6 @@
     # You can also split up your configuration and import pieces of it here:
     ../shared/configuration.nix
     ../shared/programs/steam.nix
-    ../shared/programs/android.nix
     ../shared/programs/pio.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
@@ -87,13 +86,8 @@
       driSupport32Bit = true;
 
       extraPackages = with pkgs; [
-        amdvlk
         rocm-opencl-icd
         rocm-opencl-runtime
-      ];
-
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
       ];
     };
   };
