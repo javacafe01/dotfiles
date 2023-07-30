@@ -1,7 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 
 {
-  chaotic.steam.extraCompatPackages = with pkgs; [ proton-ge-custom ];
   hardware.xpadneo.enable = true;
 
   programs.steam = {
