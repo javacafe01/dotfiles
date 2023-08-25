@@ -1,10 +1,8 @@
-{ config, ... }:
-
 {
   services.picom = {
     enable = true;
     backend = "glx";
-    vSync = false;
+    vSync = true;
     shadow = false;
 
     settings = {

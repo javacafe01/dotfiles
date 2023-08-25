@@ -4,7 +4,6 @@
   inputs = {
     # Flake inputs
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    discocss.url = "github:mlvzk/discocss/flake";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     helix.url = "github:SoraTenshi/helix/new-daily-driver";
     home.url = "github:nix-community/home-manager";
@@ -17,6 +16,7 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
     vscode-server.url = "github:msteen/nixos-vscode-server";
+    webcord.url = "github:fufexan/webcord-flake";
 
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
@@ -86,7 +86,6 @@
 
     # Default branch
     nixpkgs.follows = "nixos-unstable";
-    discocss.inputs.nixpkgs.follows = "nixpkgs";
     home.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
   };

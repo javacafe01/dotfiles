@@ -1,0 +1,5 @@
+{
+  programs.webcord = {
+    enable = true;
+  };
+}

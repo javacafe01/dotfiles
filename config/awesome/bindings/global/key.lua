@@ -15,26 +15,10 @@ local helpers = require("helpers")
 local bling = require("modules.bling")
 local flash_focus = bling.module.flash_focus
 
-local app_launcher_args = {
-    terminal = apps.terminal,
-    sort_alphabetically = true,
+local bling_config = require("config.bling")
 
-    border_width = beautiful.border_width,
-    border_color = beautiful.border_color_normal,
-    shape = helpers.shape.rrect(beautiful.border_radius),
-
-    prompt_color = beautiful.accent_blue,
-
-    app_selected_color = beautiful.accent_blue,
-    apps_margin = dpi(0),
-    apps_per_row = 3, -- Set how many apps should appear in each row
-    apps_per_column = 3,
-    app_width = dpi(200),
-    app_height = dpi(200),
-    apps_spacing = dpi(1),
-}
-
-local app_launcher = bling.widget.app_launcher(app_launcher_args)
+local app_launcher = bling_config.app_launcher
+local discord_scratch = bling_config.discord_scratch
 
 local awesome = awesome
 local client = client
@@ -154,6 +138,16 @@ awful.keyboard.append_global_keybindings({
             awful.spawn(apps.terminal)
         end,
     }),
+    awful.key({
+        modifiers = { mod.super },
+        key = "v",
+        description = "open discord scratchpad",
+        group = "scratchpad",
+        on_press = function()
+            discord_scratch:toggle()
+        end,
+    }),
+
     awful.key({
         modifiers = { mod.super },
         key = "r",

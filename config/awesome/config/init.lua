@@ -1,4 +1,5 @@
 return {
-   apps = require'config.apps',
-   vars = require'config.vars',
+    apps = require("config.apps"),
+    bling = require("config.bling"),
+    vars = require("config.vars"),
 }

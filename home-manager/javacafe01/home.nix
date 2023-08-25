@@ -11,6 +11,7 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     inputs.nix-colors.homeManagerModules.default
+    inputs.webcord.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -19,10 +20,6 @@
 
     (import ../shared/programs/bat { inherit config; })
     (import ../shared/programs/direnv { inherit config; })
-
-    (import ../shared/programs/discord {
-      inherit config; discordPackage = pkgs.discord;
-    })
 
     (import ../shared/programs/emacs { emacs-package = pkgs.emacs-git; })
     (import ../shared/programs/exa { inherit config; })
@@ -67,9 +64,10 @@
     (import ../shared/programs/git { inherit config lib pkgs; })
     (import ../shared/programs/helix { inherit inputs pkgs; })
     (import ../shared/programs/htop { inherit config; })
-    (import ../shared/services/picom { inherit config; })
+    (import ../shared/services/picom)
     (import ../shared/programs/starship { inherit config; })
     (import ../shared/programs/vscode { inherit config inputs pkgs; })
+    (import ../shared/programs/webcord)
     (import ../shared/programs/zellij { inherit inputs; })
     (import ../shared/programs/zsh { inherit config pkgs inputs; colorIt = true; })
   ];
@@ -96,7 +94,11 @@
 
       (final: prev:
         {
-          discord = prev.discord.override { withOpenASAR = true; };
+          discord = prev.discord.override {
+            withVencord = true;
+            nss = prev.nss_latest;
+          };
+
           picom = inputs.nixpkgs-f2k.packages.${final.system}.picom-git;
           neovim = inputs.neovim-nightly.packages.${final.system}.default;
           ripgrep = prev.ripgrep.override { withPCRE2 = true; };
@@ -185,11 +187,11 @@
       };
 
       ".tree-sitter".source = pkgs.runCommand "grammars" { } ''
-        mkdir -p $out/bin
-        ${
-          lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src:
-            "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
-            pkgs.tree-sitter.builtGrammars)
+                mkdir -p $out/bin
+                ${
+        lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src:
+        "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
+        pkgs.tree-sitter.builtGrammars)
         };
       '';
     };
@@ -303,5 +305,7 @@
     };
   };
 
-  xresources.extraConfig = import ../shared/x/resources.nix { theme = config.colorScheme; };
+  xresources.extraConfig = import
+    ../shared/x/resources.nix
+    { theme = config.colorScheme; };
 }

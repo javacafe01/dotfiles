@@ -15,11 +15,11 @@ local function set_border(c)
         then
             c.border_width = 0
             awful.titlebar.hide(c)
-            c.shape = helpers.shape.rrect(0)
+            -- c.shape = helpers.shape.rrect(0)
         else
             c.border_width = beautiful.border_width
             awful.titlebar.show(c)
-            c.shape = helpers.shape.rrect(beautiful.client_border_radius)
+            -- c.shape = helpers.shape.rrect(beautiful.client_border_radius)
         end
     end
 end

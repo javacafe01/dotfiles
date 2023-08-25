@@ -24,6 +24,7 @@
     };
 
     systemPackages = with pkgs; [
+      gamemode
       minecraft
     ];
   };

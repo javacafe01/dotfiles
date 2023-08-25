@@ -53,12 +53,14 @@
 
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
     };
+	
+    supportedFilesystems = [ "ntfs" ];
   };
 
   chaotic.steam.extraCompatPackages = with pkgs; [ proton-ge-custom ];
@@ -80,6 +82,7 @@
     };
 
     enableRedistributableFirmware = true;
+
     opengl = {
       enable = true;
       driSupport = true;

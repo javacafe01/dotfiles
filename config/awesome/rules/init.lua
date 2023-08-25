@@ -66,7 +66,7 @@ ruled.client.connect_signal("request::rules", function()
             titlebars_enabled = false,
             floating = true,
             border_width = 0,
-            shape = helpers.shape.rrect(0),
+            -- shape = helpers.shape.rrect(0),
             size_hints_honor = false,
         },
     })
