@@ -34,7 +34,7 @@
           id = 0;
 
           settings = {
-            "browser.startup.homepage" = "https://gs.is-a.dev/startpage/";
+            "browser.startup.homepage" = "https://javacafe01.github.io/startpage/";
             "general.smoothScroll" = true;
           };
 
