@@ -59,7 +59,7 @@
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
     };
-	
+
     supportedFilesystems = [ "ntfs" ];
   };
 
