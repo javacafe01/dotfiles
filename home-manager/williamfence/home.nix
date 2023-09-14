@@ -18,7 +18,7 @@
 
     (import ../shared/programs/bat { inherit config; })
     (import ../shared/programs/direnv { inherit config; })
-    (import ../shared/programs/exa { inherit config; })
+    (import ../shared/programs/eza)
     (import ../shared/programs/git { inherit config lib pkgs; })
     (import ../shared/programs/htop { inherit config; })
     (import ../shared/programs/starship { inherit config; })

@@ -18,7 +18,7 @@ in
     dotDir = ".config/zsh";
 
     shellAliases = {
-      ls = "exa --color=auto --icons";
+      ls = "eza --color=auto --icons";
       l = "ls -l";
       la = "ls -a";
       lla = "ls -la";

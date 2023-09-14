@@ -18,7 +18,7 @@
 
     (import ../shared/programs/bat { inherit config; })
     (import ../shared/programs/direnv { inherit config; })
-    (import ../shared/programs/exa { inherit config; })
+    (import ../shared/programs/eza)
 
     (import ../shared/programs/firefox {
       inherit config pkgs;

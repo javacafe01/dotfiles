@@ -16,7 +16,7 @@
       ${pkgs.catimg}/bin/catimg -w 100 -r 2 "$1"
       ;;
     *directory*)
-      ${pkgs.exa}/bin/exa --icons -1 --color=always "$1"
+      ${pkgs.eza}/bin/eza --icons -1 --color=always "$1"
       ;;
     *)
       echo "unknown file format"
